@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Posts from './posts.js'
+import PostPage from './PostPage.js'
 
 
-ReactDOM.render(<Posts/>, document.getElementById('root'));
+ReactDOM.render(<PostPage />, document.getElementById("root"));
 
