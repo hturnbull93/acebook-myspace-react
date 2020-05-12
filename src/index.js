@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Posts from './posts.js'
 
-const greeting = <h1>Hello world</h1>
 
-ReactDOM.render(greeting, document.getElementById('root'));
+ReactDOM.render(<Posts/>, document.getElementById('root'));
 
