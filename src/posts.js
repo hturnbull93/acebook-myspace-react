@@ -38,7 +38,7 @@ class Posts extends React.Component {
     } else {
       return (
         <section>
-          {posts.map(post => (
+          {posts.map((post) => (
             <article key={post.id}>
               <p>{post.created_at}</p>
               <p>{post.message}</p>
