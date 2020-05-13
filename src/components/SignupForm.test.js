@@ -35,33 +35,6 @@ it("form onSubmit sends fetch and parses json result", (done) => {
   done();
 });
 
-it("form onSubmit sends displays logged in if credentials correct", async () => {
-  const mockSuccessResponse = {
-    status: 200,
-    loggedIn: true,
-    success: "Logged in",
-  };
-  const mockJsonPromise = Promise.resolve(mockSuccessResponse);
-  const mockFetchPromise = Promise.resolve({
-    json: () => mockJsonPromise,
-  });
-
-  jest.spyOn(global, "fetch").mockImplementation(() => mockFetchPromise);
-
-  const wrapper = shallow(<SignupForm />);
-  const form = wrapper.find("form");
-
-  form.simulate("change", {
-    firstName: "tom",
-    lastName: "samson",
-    email: "tom@harry.com",
-    password: "password",
-  });
-  form.simulate("submit")
-  await waitUntil(() => wrapper.state('isSubmitting') === false)
-  expect(wrapper.state().message).toEqual("Logged in")
-});
-
 it("state.message is Logged In if successful fetch", async () => {
   const mockSuccessResponse = {
     status: 200,
