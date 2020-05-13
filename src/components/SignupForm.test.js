@@ -88,3 +88,30 @@ it("state.message is Logged In if successful fetch", async () => {
   await waitUntil(() => wrapper.state('isSubmitting') === false)
   expect(wrapper.state().message).toEqual("Logged in")
 });
+
+it("show an error if message contains an error", async () => {
+  const mockSuccessResponse = {
+    error: "Email already taken"
+  };
+  const mockJsonPromise = Promise.resolve(mockSuccessResponse);
+  const mockFetchPromise = Promise.resolve({
+    json: () => mockJsonPromise,
+  });
+
+  jest.spyOn(global, "fetch").mockImplementation(() => mockFetchPromise);
+
+  const wrapper = shallow(<SignupForm />);
+  const form = wrapper.find("form");
+
+  form.simulate("change", {
+    firstName: "tom",
+    lastName: "samson",
+    email: "tom@harry.com",
+    password: "password",
+  });
+  form.simulate("submit")
+  await waitUntil(() => wrapper.state('isSubmitting') === false)
+  
+  expect(wrapper.state().message).toEqual("Email already taken")
+  expect(wrapper.state().isError).toEqual(true)
+});
