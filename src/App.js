@@ -6,6 +6,7 @@ import Posts from './components/Posts';
 import Error from './components/Error';
 import Navigation from './components/Navigation';
 import Signup from './components/Signup.js';
+import Signin from './components/Signin.js';
  
 class App extends Component {
   render() {
@@ -17,7 +18,8 @@ class App extends Component {
              <Route path="/" component={Home} exact/>
              <Route path="/posts" component={Posts}/>
              <Route path="/signup" component={Signup}/>
-              <Route component={Error}/>
+             <Route path="/signin" component={Signin}/>
+             <Route component={Error}/>
            </Switch>
         </div> 
       </BrowserRouter>
