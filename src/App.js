@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Posts from './components/Posts';
 import Error from './components/Error';
 import Navigation from './components/Navigation';
+import Signup from './components/Signup.js';
  
 class App extends Component {
   render() {
@@ -15,7 +16,8 @@ class App extends Component {
             <Switch>
              <Route path="/" component={Home} exact/>
              <Route path="/posts" component={Posts}/>
-            <Route component={Error}/>
+             <Route path="/signup" component={Signup}/>
+              <Route component={Error}/>
            </Switch>
         </div> 
       </BrowserRouter>
