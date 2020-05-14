@@ -54,3 +54,31 @@ it("state.message is Post created if successful fetch", async () => {
   await waitUntil(() => wrapper.state('isSubmitting') === false)
   expect(wrapper.state().message).toEqual("Post Created")
 });
+
+it("show an error if message contains an error", async () => {
+  const mockSuccessResponse = {
+    error: "Could not post"
+  };
+  const mockJsonPromise = Promise.resolve(mockSuccessResponse);
+  const mockFetchPromise = Promise.resolve({
+    json: () => mockJsonPromise,
+  });
+
+  jest.spyOn(global, "fetch").mockImplementation(() => mockFetchPromise);
+
+  const wrapper = shallow(<PostForm />);
+  const form = wrapper.find("form");
+
+  form.simulate("change", {
+    firstName: "tom",
+    lastName: "samson",
+    email: "tom@harry.com",
+    password: "password",
+  });
+  form.simulate("submit")
+  await waitUntil(() => wrapper.state('isSubmitting') === false)
+  
+  expect(wrapper.state().message).toEqual("Could not post")
+  expect(wrapper.state().isError).toEqual(true)
+});
+
