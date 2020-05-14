@@ -31,3 +31,26 @@ it("can sends of a post request on submit", (done) => {
   global.fetch.mockClear();
   done();
 })
+
+it("state.message is Post created if successful fetch", async () => {
+  const mockSuccessResponse = {
+    status: 200,
+    success: "Post Created",
+  };
+  const mockJsonPromise = Promise.resolve(mockSuccessResponse);
+  const mockFetchPromise = Promise.resolve({
+    json: () => mockJsonPromise,
+  });
+
+  jest.spyOn(global, "fetch").mockImplementation(() => mockFetchPromise);
+
+  const wrapper = shallow(<PostForm />);
+  const form = wrapper.find("form");
+
+  form.simulate("change", {
+    message: "hello",
+  });
+  form.simulate("submit")
+  await waitUntil(() => wrapper.state('isSubmitting') === false)
+  expect(wrapper.state().message).toEqual("Post Created")
+});
