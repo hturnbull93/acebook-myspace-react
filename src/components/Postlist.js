@@ -39,7 +39,7 @@ class Postlist extends React.Component {
       return (
         <section>
           {posts.map((post) => (
-            <article key={post.id}>
+            <article className = "post" key={post.id}>
               <p>{post.created_at}</p>
               <p>{post.message}</p>
             </article>
