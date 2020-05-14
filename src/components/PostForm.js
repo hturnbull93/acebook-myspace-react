@@ -19,7 +19,7 @@ export class PostForm extends Component {
   submitForm = async (e) => {
     if (e) e.preventDefault();
     this.setState({ isSubmitting: true });
-    const res = await fetch("/example-posts.json", {
+    const res = await fetch("http://localhost:3001/api/v1/posts", {
       method: "POST",
       body: JSON.stringify(this.state.values),
       headers: {
@@ -28,9 +28,12 @@ export class PostForm extends Component {
     });
     this.setState({ isSubmitting: false });
     const data = await res.json();
-    !data.hasOwnProperty("error")
-      ? this.setState({ message: data.success })
-      : this.setState({ message: data.error, isError: true });
+    if (!data.hasOwnProperty("error")) {
+      this.setState({ message: data.success })
+      window.location.href = 'http://localhost:3000/posts';
+    } else {
+      this.setState({ message: data.error, isError: true })
+    }
   };
 
   render() {
