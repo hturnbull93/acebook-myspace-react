@@ -36,7 +36,7 @@ export class PostForm extends Component {
   render() {
     return (
       <form onSubmit={this.submitForm}>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="message">Create Post</label>
         <input
           type="textarea"
           name="message"
@@ -44,6 +44,7 @@ export class PostForm extends Component {
           value={this.state.values.message}
           required
         />
+        <input type="submit" className="submit" />
       </form>
     );
   }
