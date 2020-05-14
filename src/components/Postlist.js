@@ -11,7 +11,7 @@ class Postlist extends React.Component {
   }
 
   componentDidMount() {
-    fetch("/example-posts.json")
+    fetch("http://localhost:3001/api/v1/posts")
       .then((res) => res.json())
       .then(
         (result) => {
