@@ -30,6 +30,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md)
 
     ```bash
     npm install
+    npm test # Run the tests to ensure it works
     npm start
     ```
 
