@@ -30,14 +30,16 @@ export class SigninForm extends Component {
     this.setState({ isSubmitting: false });
     const data = await res.json();
     if (data.status === "created") {
-      this.setState({ message: data.success })
+      this.setState({ message: data.status })
       window.location.href = 'http://localhost:3000/posts';
     } else {
-      this.setState({ message: data.error, isError: true })
+      this.setState({ message: data.status, isError: true })
     }
   };
   render() {
+    let errorMessage = this.state.message === 401 ? "Incorrect email or password" : ""
     return (
+      <div>
       <form onSubmit={this.submitForm}>
         <label htmlFor="email">Email</label>
         <input
@@ -56,8 +58,9 @@ export class SigninForm extends Component {
           required
         />
         <input type="submit" className="submit" />
-
       </form>
+      <div>{errorMessage}</div>
+      </div>
     );
   }
 }
