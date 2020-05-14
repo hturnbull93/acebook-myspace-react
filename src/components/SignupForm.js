@@ -34,15 +34,17 @@ export class SignupForm extends Component {
     });
     this.setState({ isSubmitting: false });
     const data = await res.json();
-    if (!data.hasOwnProperty("error")) {
+    if (data.status !== 500 ) {
       this.setState({ message: data.success })
       window.location.href = 'http://localhost:3000/posts';
     } else {
-      this.setState({ message: data.error, isError: true })
+      this.setState({ message: data.status, isError: true })
     }
+
   };
 
   render() {
+    let errorMessage = this.state.isError ? "Email is already in use" : ""
     return (
       <div>
         <form onSubmit={this.submitForm}>
@@ -80,9 +82,7 @@ export class SignupForm extends Component {
           />
           <input type="submit" className="submit" />
         </form>
-        <Route exact path="/">
-          <Redirect to="/posts" />
-        </Route>
+        <div>{errorMessage}</div>
       </div>
     );
   }
