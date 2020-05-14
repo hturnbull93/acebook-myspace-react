@@ -8,7 +8,8 @@ import Navigation from './components/Navigation';
 import Signup from './components/Signup.js';
 import Signin from './components/Signin.js';
 import CreatePost from './components/CreatePost.js';
- 
+
+
 class App extends Component {
   render() {
     return (      

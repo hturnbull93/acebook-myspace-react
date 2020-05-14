@@ -1,0 +1,36 @@
+h1 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute; top: 5px;
+    max-width: 80px;
+    font-size: 20px;
+    padding-left: 30px;
+}
+
+.Nav_link {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    line-height: 1.6rem;
+    text-decoration: none;
+    padding-right: 30px;
+    float: right; 
+  }
+  
+  .navBar{
+      background-color: #2851A3;
+      min-height: 42px;
+      padding-top: 23px;
+  }
+  
+  .lowerBar{
+      position: absolute; bottom: 0;
+      min-height: 35px;
+      background-color: #2851A3;
+      padding-left: 0;
+      color: white;
+      min-width: 100%;
+      text-align: center;
+      padding-top: 25px;
+      font-family: Arial, Helvetica, sans-serif;
+  }
