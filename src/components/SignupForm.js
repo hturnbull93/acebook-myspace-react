@@ -25,7 +25,7 @@ export class SignupForm extends Component {
   submitForm = async (e) => {
     if (e) e.preventDefault();
     this.setState({ isSubmitting: true });
-    const res = await fetch("/example-posts.json", {
+    const res = await fetch("http://localhost:3001/api/v1/registrations", {
       method: "POST",
       body: JSON.stringify(this.state.values),
       headers: {
