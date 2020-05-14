@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { BrowserRouter, Route, Redirect, NavLink } from 'react-router-dom';
+
 
 export class SignupForm extends Component {
   constructor(props) {
@@ -32,48 +34,56 @@ export class SignupForm extends Component {
     });
     this.setState({ isSubmitting: false });
     const data = await res.json();
-    !data.hasOwnProperty("error")
-      ? this.setState({ message: data.success })
-      : this.setState({ message: data.error, isError: true });
+    if (!data.hasOwnProperty("error")) {
+      this.setState({ message: data.success })
+      window.location.href = 'http://localhost:3000/posts';
+    } else {
+      this.setState({ message: data.error, isError: true })
+    }
   };
 
   render() {
     return (
-      <form onSubmit={this.submitForm}>
-        <label htmlFor="firstName">First Name</label>
-        <input
-          type="text"
-          name="firstName"
-          onChange={this.handleInputChange}
-          value={this.state.values.firstName}
-          required
-        />
-        <label htmlFor="lastName">Last Name</label>
-        <input
-          type="text"
-          name="lastName"
-          onChange={this.handleInputChange}
-          value={this.state.values.lastName}
-          required
-        />
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          onChange={this.handleInputChange}
-          value={this.state.values.email}
-          required
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          onChange={this.handleInputChange}
-          value={this.state.values.password}
-          required
-        />
-        <input type="submit" className="submit" />
-      </form>
+      <div>
+        <form onSubmit={this.submitForm}>
+          <label htmlFor="firstName">First Name</label>
+          <input
+            type="text"
+            name="firstName"
+            onChange={this.handleInputChange}
+            value={this.state.values.firstName}
+            required
+          />
+          <label htmlFor="lastName">Last Name</label>
+          <input
+            type="text"
+            name="lastName"
+            onChange={this.handleInputChange}
+            value={this.state.values.lastName}
+            required
+          />
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            onChange={this.handleInputChange}
+            value={this.state.values.email}
+            required
+          />
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            onChange={this.handleInputChange}
+            value={this.state.values.password}
+            required
+          />
+          <input type="submit" className="submit" />
+        </form>
+        <Route exact path="/">
+          <Redirect to="/posts" />
+        </Route>
+      </div>
     );
   }
 }
