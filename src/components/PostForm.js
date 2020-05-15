@@ -30,7 +30,8 @@ export class PostForm extends Component {
     const data = await res.json();
     if (!data.hasOwnProperty("error")) {
       this.setState({ message: data.success })
-      window.location.href = 'http://localhost:3000/posts';
+      // window.location.href = 'http://localhost:3000/posts';
+      this.props.handlePostSubmit(data)
     } else {
       this.setState({ message: data.error, isError: true })
     }
@@ -46,6 +47,13 @@ export class PostForm extends Component {
           onChange={this.handleInputChange}
           value={this.state.values.message}
           required
+        />
+        <input
+          type="textarea"
+          name="user_id"
+          value={this.props.userId}
+          required
+          hidden
         />
         <input type="submit" className="submit" />
       </form>

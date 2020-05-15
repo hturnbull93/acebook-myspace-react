@@ -25,45 +25,65 @@ export default class App extends Component {
     });
   }
   render() { 
-    return (      
-       <BrowserRouter>
+    return (
+      <BrowserRouter>
         <div>
           <Navigation loggedInStatus={this.state.loggedInStatus} />
-            <Switch>
-             <Route 
-             exact
-             path="/" 
-             render = { props => (
-              <Home {...props} handleLogin = {this.handleLogin} loggedInStatus = {this.state.loggedInStatus} />
-             )}/>
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={(props) => (
+                <Home
+                  {...props}
+                  handleLogin={this.handleLogin}
+                  loggedInStatus={this.state.loggedInStatus}
+                />
+              )}
+            />
 
-             <Route 
-             exact 
-             path="/posts" 
-             render= { props => (
-               <Posts {...props} loggedInStatus = {this.state.loggedInStatus} />
-             )}/>
+            <Route
+              exact
+              path="/posts"
+              render={(props) => (
+                <Posts {...props} loggedInStatus={this.state.loggedInStatus} />
+              )}
+            />
 
-             <Route
-             exact 
-             path="/signup" 
-             render = { props => (
-            <Signup {...props} handleLogin = {this.handleLogin} loggedInStatus = {this.state.loggedInStatus} />
-             )}/>
+            <Route
+              exact
+              path="/signup"
+              render={(props) => (
+                <Signup
+                  {...props}
+                  handleLogin={this.handleLogin}
+                  loggedInStatus={this.state.loggedInStatus}
+                />
+              )}
+            />
 
-             <Route
-             exact 
-             path="/signin"
-             render = { props => (
-             <Signin {...props} handleLogin = {this.handleLogin} loggedInStatus = {this.state.loggedInStatus} />
-             )}/>
-             
+            <Route
+              exact
+              path="/signin"
+              render={(props) => (
+                <Signin
+                  {...props}
+                  handleLogin={this.handleLogin}
+                  loggedInStatus={this.state.loggedInStatus}
+                />
+              )}
+            />
 
-             <Route path="/createpost" component={CreatePost}/> 
+            <Route
+              path="/createpost"
+              render={(props) => (
+                <CreatePost {...props} userId={this.state.user.id} />
+              )}
+            />
 
-             <Route component={Error}/>
-           </Switch>
-        </div> 
+            <Route component={Error} />
+          </Switch>
+        </div>
       </BrowserRouter>
     );
   }
