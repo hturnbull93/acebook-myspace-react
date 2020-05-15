@@ -8,7 +8,7 @@ import Navigation from './components/Navigation';
 import Signup from './components/Signup.js';
 import Signin from './components/Signin.js';
 import CreatePost from './components/CreatePost.js';
- 
+
 export default class App extends Component {
   constructor() {
     super();
@@ -64,6 +64,7 @@ export default class App extends Component {
 
              <Route component={Error}/>
            </Switch>
+          <div className = "lowerBar">Created with love by Angelica, Ed, Faye, Harry, Steven and Thomas</div>
         </div> 
       </BrowserRouter>
     );

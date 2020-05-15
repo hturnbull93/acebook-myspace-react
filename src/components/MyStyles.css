@@ -1,0 +1,51 @@
+h1 {
+    color: white;
+    position: absolute; top: 5px;
+    max-width: 80px;
+    font-size: 20px;
+    padding-left: 30px;
+}
+
+.Nav_link {
+    color: white;
+    font-size: 20px;
+    line-height: 1.6rem;
+    text-decoration: none;
+    padding-right: 30px;
+    float: right; 
+  }
+  
+  .navBar{
+      background-color: #2851A3;
+      min-height: 42px;
+      padding-top: 23px;
+  }
+  
+  .lowerBar{
+      position: absolute; bottom: 0;
+      min-height: 35px;
+      background-color: #2851A3;
+      padding-left: 0;
+      color: white;
+      min-width: 100%;
+      text-align: center;
+      padding-top: 25px;
+  }
+
+  .post{
+      background-color: rgb(221, 221, 221);
+      text-align: center;
+  }
+
+  .home{
+      text-align: center;
+      font-size: 20px;
+      background-color: rgb(221, 221, 221);
+      margin: auto;
+      display: block;
+      max-width: 40%;
+  }
+
+  *{
+      font-family: Arial, Helvetica, sans-serif;
+  }

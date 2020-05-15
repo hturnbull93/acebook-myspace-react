@@ -1,3 +1,7 @@
+import  wilson from './wilson.gif'
+import './MyStyles.css' 
+
+ 
 import React, { Component } from 'react';
 import SignupForm from './SignupForm'
 
