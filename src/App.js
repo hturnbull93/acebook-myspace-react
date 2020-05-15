@@ -28,7 +28,8 @@ export default class App extends Component {
     return (      
        <BrowserRouter>
         <div>
-          <Navigation />
+          <div>{this.state.user.email}</div>
+          <Navigation loggedInStatus={this.state.loggedInStatus} />
             <Switch>
              <Route 
              exact
@@ -59,7 +60,7 @@ export default class App extends Component {
              )}/>
              
 
-             <Route path="/createpost" component={CreatePost}/>
+             <Route path="/createpost" component={CreatePost}/> 
 
              <Route component={Error}/>
            </Switch>
