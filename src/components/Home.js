@@ -11,6 +11,7 @@ export default class Home extends Component {
             <div>
                <h1>Home</h1>
                 <h1> Status: { this.props.loggedInStatus }</h1>
+                <h2>Welcome { this.props.user }</h2>
                 <p>Welcome to Acebook Myspace</p>
             </div>
          );
