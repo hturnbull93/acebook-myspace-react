@@ -62,9 +62,9 @@ it("state.message is Logged In if successful fetch", async () => {
   expect(wrapper.state().message).toEqual("Logged in")
 });
 
-it("show an error if message contains an error", async () => {
+it("show an error message on the page if message contains an error", async () => {
   const mockSuccessResponse = {
-    error: "Email already taken"
+    status: 500
   };
   const mockJsonPromise = Promise.resolve(mockSuccessResponse);
   const mockFetchPromise = Promise.resolve({
@@ -85,6 +85,7 @@ it("show an error if message contains an error", async () => {
   form.simulate("submit")
   await waitUntil(() => wrapper.state('isSubmitting') === false)
   
-  expect(wrapper.state().message).toEqual("Email already taken")
+  expect(wrapper.state().message).toEqual(500)
   expect(wrapper.state().isError).toEqual(true)
+  expect(wrapper).toContainReact(<div>Email is already in use</div>)
 });

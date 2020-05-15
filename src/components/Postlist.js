@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 
 class Postlist extends React.Component {
   constructor() {
@@ -17,7 +18,7 @@ class Postlist extends React.Component {
         (result) => {
           this.setState({
             isLoaded: true,
-            posts: [...result],
+            posts: [...result.posts],
           });
         },
         (error) => {
@@ -39,9 +40,10 @@ class Postlist extends React.Component {
       return (
         <section>
           {posts.map((post) => (
-            <article className = "post" key={post.id}>
-              <p>{post.created_at}</p>
+            <article className="post" key={post.id}>
+              <p>{moment(post.created_at).format('MMMM Do YYYY, h:mm a')}</p>
               <p>{post.message}</p>
+              <p>{post.first_name}</p>
             </article>
           ))}
         </section>
