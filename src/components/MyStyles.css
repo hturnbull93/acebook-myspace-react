@@ -6,8 +6,8 @@ h1 {
     padding-left: 30px;
 }
 
-.Nav_link {
-    color: white;
+.navBar a {
+    color: white; 
     font-size: 20px;
     line-height: 1.6rem;
     text-decoration: none;
