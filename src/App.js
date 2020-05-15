@@ -51,7 +51,13 @@ export default class App extends Component {
             <Signup {...props} handleLogin = {this.handleLogin} loggedInStatus = {this.state.loggedInStatus} />
              )}/>
 
-             <Route path="/signin" component={Signin}/>
+             <Route
+             exact 
+             path="/signin"
+             render = { props => (
+             <Signin {...props} handleLogin = {this.handleLogin} loggedInStatus = {this.state.loggedInStatus} />
+             )}/>
+             
 
              <Route path="/createpost" component={CreatePost}/>
 
