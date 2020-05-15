@@ -35,9 +35,8 @@ it("form onSubmit sends fetch and parses json result", (done) => {
 
 it("state.message is Logged In if successful fetch", async () => {
   const mockSuccessResponse = {
-    status: 200,
-    loggedIn: true,
-    success: "Logged in",
+    logged_in: true,
+    status: "created",
   };
   const mockJsonPromise = Promise.resolve(mockSuccessResponse);
   const mockFetchPromise = Promise.resolve({
@@ -55,12 +54,12 @@ it("state.message is Logged In if successful fetch", async () => {
   });
   form.simulate("submit")
   await waitUntil(() => wrapper.state('isSubmitting') === false)
-  expect(wrapper.state().message).toEqual("Logged in")
+  expect(wrapper.state().message).toEqual("created")
 });
 
 it("show an error if message contains an error", async () => {
   const mockSuccessResponse = {
-    error: "Incorrect email or password"
+    status: 401
   };
   const mockJsonPromise = Promise.resolve(mockSuccessResponse);
   const mockFetchPromise = Promise.resolve({
@@ -79,6 +78,7 @@ it("show an error if message contains an error", async () => {
   form.simulate("submit")
   await waitUntil(() => wrapper.state('isSubmitting') === false)
   
-  expect(wrapper.state().message).toEqual("Incorrect email or password")
+  expect(wrapper.state().message).toEqual(401)
   expect(wrapper.state().isError).toEqual(true)
+  expect(wrapper).toContainReact(<div>Incorrect email or password</div>)
 });
