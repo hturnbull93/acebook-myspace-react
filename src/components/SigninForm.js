@@ -31,7 +31,7 @@ export class SigninForm extends Component {
     const data = await res.json();
     if (data.status === "created") {
       this.setState({ message: data.status })
-      window.location.href = 'http://localhost:3000/posts';
+      this.props.handleSuccessfulAuth(data)
     } else {
       this.setState({ message: data.status, isError: true })
     }
