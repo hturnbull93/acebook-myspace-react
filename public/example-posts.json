@@ -1,30 +1,45 @@
-[
+{
+  "status": 200,
+  "posts": [
   {
-"id": 1,
-"message": "Post 1!",
-"created_at": "2020-05-12T14: 30: 33.221+01: 00",
-"updated_at": "2020-05-12T14: 30: 33.221+01: 00",
-"slug": "post1"
+  "id": 1,
+  "message": "Hello!",
+  "created_at": "2020-05-14T16:56:00.401+01:00",
+  "updated_at": "2020-05-14T16:56:00.401+01:00",
+  "slug": "HelloWorld",
+  "user_id": 1,
+  "first_name": "Jon",
+  "last_name": "Jonson"
   },
   {
-"id": 2,
-"message": "Post 2!",
-"created_at": "2020-05-12T14: 30: 33.221+01: 00",
-"updated_at": "2020-05-12T14: 30: 33.221+01: 00",
-"slug": "post2"
+  "id": 2,
+  "message": "asdasd",
+  "created_at": "2020-05-14T16:57:12.039+01:00",
+  "updated_at": "2020-05-14T16:57:12.039+01:00",
+  "slug": null,
+  "user_id": 1,
+  "first_name": "Jon",
+  "last_name": "Jonson"
   },
   {
-"id": 3,
-"message": "Post 3!",
-"created_at": "2020-05-12T14: 30: 33.221+01: 00",
-"updated_at": "2020-05-12T14: 30: 33.221+01: 00",
-"slug": "post3"
+  "id": 3,
+  "message": "I am Pete lol",
+  "created_at": "2020-05-15T11:56:05.016+01:00",
+  "updated_at": "2020-05-15T11:56:05.016+01:00",
+  "slug": null,
+  "user_id": 2,
+  "first_name": "Pete",
+  "last_name": "Peterson"
   },
   {
-"id": 4,
-"message": "Post 4!",
-"created_at": "2020-05-12T14: 30: 33.221+01: 00",
-"updated_at": "2020-05-12T14: 30: 33.221+01: 00",
-"slug": "post4"
+  "id": 4,
+  "message": "I am Pete",
+  "created_at": "2020-05-15T11:59:10.434+01:00",
+  "updated_at": "2020-05-15T11:59:10.434+01:00",
+  "slug": null,
+  "user_id": 2,
+  "first_name": "Pete",
+  "last_name": "Peterson"
   }
-]
+  ]
+  }

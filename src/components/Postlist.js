@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 
 class Postlist extends React.Component {
   constructor() {
@@ -11,13 +12,14 @@ class Postlist extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3001/api/v1/posts")
+    //fetch("http://localhost:3001/api/v1/posts")
+    fetch("/example-posts.json")
       .then((res) => res.json())
       .then(
         (result) => {
           this.setState({
             isLoaded: true,
-            posts: [...result],
+            posts: [...result.posts],
           });
         },
         (error) => {
@@ -40,8 +42,9 @@ class Postlist extends React.Component {
         <section>
           {posts.map((post) => (
             <article key={post.id}>
-              <p>{post.created_at}</p>
+              <p>{moment(post.created_at).format('MMMM Do YYYY, h:mm a')}</p>
               <p>{post.message}</p>
+              <p>{post.first_name}</p>
             </article>
           ))}
         </section>
