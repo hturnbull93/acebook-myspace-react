@@ -28,6 +28,7 @@ export default class App extends Component {
     return (      
        <BrowserRouter>
         <div>
+          <div>{this.state.user.email}</div>
           <Navigation loggedInStatus={this.state.loggedInStatus} />
             <Switch>
              <Route 

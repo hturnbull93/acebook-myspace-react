@@ -17,7 +17,7 @@ class Postlist extends React.Component {
         (result) => {
           this.setState({
             isLoaded: true,
-            posts: [...result],
+            posts: [...result.posts],
           });
         },
         (error) => {
