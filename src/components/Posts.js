@@ -7,6 +7,7 @@ export class Posts extends Component {
     return (
       <div>
         <h1>Posts</h1>
+        <h1> Status: { this.props.loggedInStatus }</h1>
         <Postlist/>
       </div>
     );
