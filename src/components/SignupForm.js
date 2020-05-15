@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Redirect, NavLink } from 'react-router-dom';
-
 
 export class SignupForm extends Component {
   constructor(props) {
@@ -15,6 +13,7 @@ export class SignupForm extends Component {
       isSubmitting: false,
       isError: false,
     };
+
   }
 
   handleInputChange = (e) =>
@@ -36,7 +35,7 @@ export class SignupForm extends Component {
     const data = await res.json();
     if (data.status !== 500 ) {
       this.setState({ message: data.success })
-      window.location.href = 'http://localhost:3000/posts';
+      this.props.handleSuccessfulAuth(data)
     } else {
       this.setState({ message: data.status, isError: true })
     }
